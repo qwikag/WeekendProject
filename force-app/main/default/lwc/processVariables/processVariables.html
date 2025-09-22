@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Process Engine Variables" icon-name="utility:settings">
+        <div class="slds-p-around_medium">
+            <div class="var-grid">
+                <!-- Serial Engine On -->
+                <div class="var-tile">
+                    <div class="var-label">{labelSerialEngineOn}</div>
+                    <div class="var-input is-toggle">
+                        <lightning-input type="toggle"
+							class="toggle-control"
+							variant="label-hidden"
+							message-toggle-active=""
+							message-toggle-inactive=""
+							checked={editSerialEngineOn}
+							onchange={handleToggleChange}>
+                        </lightning-input>
+                        <div class="helper-display">Current: {serialEngineOnPillLabel}</div>
+                    </div>
+                </div>
+
+                <!-- Serial Engine Timestamp -->
+                <div class="var-tile">
+                    <div class="var-label">{labelSerialEngineTimestamp}</div>
+                    <div class="var-input is-toggle">
+                        <lightning-input class="no-format-help"
+							type="datetime-local"
+							label=" "
+							variant="label-hidden"
+							value={editSerialEngineTimestamp}
+							onchange={handleTimestampChange}>
+                        </lightning-input>
+                        <div class="helper-display">Current: {serialEngineTimestampDisplay}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-m-top_medium slds-align_absolute-center">
+                <lightning-button variant="brand" label="Save" onclick={handleSave} class="slds-m-right_small"></lightning-button>
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

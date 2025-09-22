@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Admin_Console</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>ProcessVariablesController</members>
+		<members>SerialEngineInstallHandler</members>
+		<members>SerialEngineSetup</members>
+		<members>SerialProcessSetupController</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Error_Log__c</members>
+		<members>Serial_Engine</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>Error_Log__c</members>
+		<members>Process__c</members>
+		<members>Process_Variables__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Serial_Engine</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>serialProcessSetup</members>
+		<members>processVariables</members>
+		<name>LightningComponentBundle</name>
+	</types>
+	<version>64.0</version>
+</Package>

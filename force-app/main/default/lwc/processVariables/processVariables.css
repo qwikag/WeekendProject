@@ -1,0 +1,49 @@
+.var-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.var-tile{
+    background: #e6f4ff; /* light blue */
+    border: 1px solid #b3d4ff;
+    border-radius: 0.5rem; /* medium rounded corners */
+    padding: 0.75rem;
+}
+.var-label{
+    font-weight: 600;
+    margin-bottom: 0.25rem; /* top row */
+}
+.var-input{ /* bottom row */
+    display: flex;
+    flex-direction: column; /* stack input and Current: text */
+    align-items: flex-start;
+}
+.var-input.is-toggle{
+    min-height: 58px;
+}
+.toggle-control{
+    transform: scale(1.31); /* 26px -> ~34px */
+    transform-origin: left top;
+	padding-bottom: 0.60rem;
+
+}
+.helper-display{
+    font-size: 0.75rem;
+    color: #3e3e3c;
+}
+
+/* Hide default helper text like "Format: dd mmm yyyy" and sub-headers */
+.var-input lightning-input .slds-form-element__help{ display: none; }
+.var-input lightning-input .slds-form-element__legend{ display: none; }
+
+/* Clip any internal helper text produced by lightning-input */
+.no-format-help{
+    display:block;
+    height: 2.20rem; /* show input only */
+    overflow: hidden;
+}
+
+/* Space below input controls so helper sits lower */
+.var-input lightning-input{
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,225 @@
+/* Custom Table Styling */
+.table {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.thead .tr,
+.tbody .tr {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.6fr 0.6fr 1.2fr 1.2fr;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.th {
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    color: #181818;
+    text-align: left;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    background: transparent;
+}
+
+.td {
+    padding: 0.25rem 0.5rem;
+}
+
+.tbody .tr {
+    border: 1px solid #e0e3e8;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.tbody .tr.active {
+    background: #e3fcef !important;
+    border-color: #28a745 !important;
+}
+
+.tbody .tr.inactive {
+    background: #fde3e3 !important;
+    border-color: #dc3545 !important;
+}
+
+.save-section {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 0 0 0;
+    margin-top: 1rem;
+}
+
+/* Header row styling */
+.thead {
+    margin-bottom: 0.5rem;
+}
+
+.thead .tr {
+    padding: 0.25rem 0;
+}
+
+.thead .th {
+    background: transparent;
+    color: #181818;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.25rem 0.5rem;
+    border: none;
+}
+
+/* Input field styling within table */
+.td lightning-input {
+    width: 100%;
+}
+
+.td lightning-input::part(input) {
+    border: none;
+    background: transparent;
+    padding: 0.25rem 0.5rem;
+}
+
+.td lightning-input::part(input):focus {
+    border: 1px solid #0176d3;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 2px rgba(1, 118, 211, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .thead .tr,
+    .tbody .tr {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.25rem;
+    }
+    
+    .th,
+    .td {
+        padding: 0.25rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Groups Overview Card Styling */
+.groups-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+}
+
+.group-column {
+    flex: 1;
+    min-width: 250px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.group-header {
+    padding: 0.625rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.active-group-header {
+    background-color: #e3fcef;
+    color: #155724;
+}
+
+.inactive-group-header {
+    background-color: #fde3e3;
+    color: #721c24;
+}
+
+.mixed-group-header {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.group-header-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.group-status-badge {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.processes-list {
+    padding: 0.75rem;
+    background-color: transparent;
+}
+
+.process-box {
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid #e0e3e8;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.active-process {
+    background-color: #e3fcef;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.inactive-process {
+    background-color: #fde3e3;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.process-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.process-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.process-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.process-order {
+    font-weight: 500;
+}
+
+.process-object {
+    font-style: italic;
+}
+
+/* Responsive design for groups */
+@media (max-width: 768px) {
+    .groups-container {
+        flex-direction: column;
+    }
+    
+    .group-column {
+        min-width: auto;
+    }
+}

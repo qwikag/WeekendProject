@@ -1,0 +1,157 @@
+<template>
+    <!-- Group Overview Card -->
+    <lightning-card title="Process Groups Overview" icon-name="custom:custom14" class="slds-m-bottom_medium">
+        <div class="slds-card__body slds-card__body_inner">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </template>
+
+            <template if:true={groupedProcessData}>
+                <div class="groups-container">
+                    <template for:each={groupedProcessData} for:item="group">
+                        <div key={group.groupName} class="group-column">
+                            <div class={group.headerClass}>
+                                <h3 class="group-header-text">{group.groupName}</h3>
+                                <span class="group-status-badge">{group.statusText}</span>
+                            </div>
+                            <div class="processes-list">
+                                <template for:each={group.processes} for:item="process">
+                                    <div key={process.Id} class={process.statusClass}>
+                                        <div class="process-name">{process.Name}</div>
+                                        <div class="process-details">
+                                            <span class="process-order">Order: {process.Order__c}</span>
+                                            <span class="process-object">{process.Object__c}</span>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:false={processData}>
+                <div class="slds-text-align_center slds-p-around_medium">
+                    <p>No serial process groups found.</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Existing Table Card -->
+    <lightning-card title="Serial Process Setup Manager" icon-name="custom:custom63">
+        <div class="slds-card__body slds-card__body_inner">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </template>
+
+            <template if:true={processData}>
+                <div class="process-table-container">
+                    <div class="table">
+                        <div class="thead">
+                            <div class="tr">
+                                <div class="th name">Name</div>
+                                <div class="th group">Group</div>
+                                <div class="th order">Order</div>
+                                <div class="th active">Active</div>
+                                <div class="th handlerClass">Handler Class</div>
+                                <div class="th object">Object</div>
+                            </div>
+                        </div>
+                        <div class="tbody">
+                            <template for:each={processData} for:item="process">
+                                <div key={process.Id} class={process.rowClass}>
+                                    <div class="td name">
+                                        <lightning-input
+                                            type="text"
+                                            value={process.Name}
+                                            data-id={process.Id}
+                                            data-field="Name"
+                                            onchange={handleTableEdit}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </div>
+                                    <div class="td group">
+                                        <lightning-input
+                                            type="text"
+                                            value={process.Group__c}
+                                            data-id={process.Id}
+                                            data-field="Group__c"
+                                            onchange={handleTableEdit}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </div>
+                                    <div class="td order">
+                                        <lightning-input
+                                            type="number"
+                                            value={process.Order__c}
+                                            data-id={process.Id}
+                                            data-field="Order__c"
+                                            onchange={handleTableEdit}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </div>
+                                    <div class="td active">
+                                        <lightning-input
+                                            type="checkbox"
+                                            checked={process.Active__c}
+                                            data-id={process.Id}
+                                            data-field="Active__c"
+                                            onchange={handleTableEdit}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </div>
+                                    <div class="td handlerClass">
+                                        <lightning-input
+                                            type="text"
+                                            value={process.Handler_Class__c}
+                                            data-id={process.Id}
+                                            data-field="Handler_Class__c"
+                                            onchange={handleTableEdit}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </div>
+                                    <div class="td object">
+                                        <lightning-input
+                                            type="text"
+                                            value={process.Object__c}
+                                            data-id={process.Id}
+                                            data-field="Object__c"
+                                            onchange={handleTableEdit}
+                                            variant="label-hidden">
+                                        </lightning-input>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <template if:true={hasChanges}>
+                        <div class="save-section">
+                            <lightning-button
+                                variant="brand"
+                                label="Save Changes"
+                                onclick={handleSaveChanges}
+                                disabled={isLoading}>
+                            </lightning-button>
+                            <lightning-button
+                                variant="neutral"
+                                label="Cancel Changes"
+                                onclick={handleCancelChanges}
+                                class="slds-m-left_x-small"
+                                disabled={isLoading}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:false={processData}>
+                <div class="slds-text-align_center slds-p-around_medium">
+                    <p>No serial process settings found.</p>
+                </div>
+            </template>
+        </div>
+
+    </lightning-card>
+</template>
