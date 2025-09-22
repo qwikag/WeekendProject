@@ -6,7 +6,6 @@
 	</types>
 	<types>
 		<members>ProcessVariablesController</members>
-		<members>SerialEngineInstallHandler</members>
 		<members>SerialEngineSetup</members>
 		<members>SerialProcessSetupController</members>
 		<name>ApexClass</name>
